@@ -1,4 +1,5 @@
 import pickle
+import random
 
 def print_line(): #This function prints a line
     print ("----------")
@@ -50,26 +51,13 @@ class rogue: #Defines the rogue class
         self.cls = "rogue"
 
 def intro():
-    temp_name = input("Please enter your name!")
-    generic_warrior = warrior("sample")
-    generic_mage = mage("sample")
-    generic_rogue = rogue("sample")
-    print_line()
-    print ("CLASSES")
-    print_line()
-    print ("Warrior")
-    print_line()
-    print ("Health Points:" + str(generic_warrior.hp))
-    print ("Magic Points:" + str(generic_warrior.mp))
-    print ("Dexterity Points: " + str(generic_warrior.dex))
-    print_line()
-    print ("Mage")
-    print_line()
-    print ("Health Points:" + str(generic_mage.hp))
-    print ("Magic Points" + str(generic_mage.mp))
-    print ("Dexterity Points" + str(generic_mage.dex))
-    print_line()
-
+    while True:
+        temp_name = input("Please enter your name!")
+        if (temp_name == ""):
+            continue
+        else:
+            break
+    
 
 intro()
 
