@@ -1,6 +1,28 @@
 import pickle
 import random
 
+cls = lambda: os.system("cls") #This function clears the screen
+pause = lambda: os.system("pause") #This function paueses the screen
+
+def save(player):
+    temp_username = str(player.name)
+    if ((os.path.isfile("%s.p" % (temp_username)) == True ):
+        while True:
+            temp_save_choice = input("This file exists already, would you like to overwrite? y/n")
+            temp_save_choice.lower()
+            if (temp_save_choice == "y"):
+                pickle.dump(player, open("%s.p" % (temp_username), "wb" ))
+                print ("Saved")
+                return None
+            elif (temp_save_choice == "n"):
+                return ("Save wasn't made")
+            else:
+                return ("ERROR")
+    else:
+        pickle.dump(player, open("%s.p" % (temp_username) , "wb" ))
+        return None
+         
+
 def print_line(): #This function prints a line
     print ("----------")
     return None
@@ -50,16 +72,74 @@ class rogue: #Defines the rogue class
         self.lvl = 1
         self.cls = "rogue"
 
-def intro():
-    while True:
+def intro(): #This defines the intro of the game
+    generic_warrior = warrior("generic")
+    generic_mage = mage("generic")
+    generic_rogue = rogue("generic")
+    while True: #This is to make sure the username isn't blank
         temp_name = input("Please enter your name!")
         if (temp_name == ""):
             continue
         else:
             break
-    
+    print ("These are the classes") #The lines below are just defined the stats 
+    print_line()                    # of each class
+    print ("CLASSES")
+    print_line()
+    print ("1.Warrior Stats")
+    print_line()
+    print ("Health Points:" + str(generic_warrior.hp))
+    print ("Magic Points:" + str(generic_warrior.mp))
+    print ("Dexterity Points" + str(generic_warrior.dex))
+    print_line()
+    print ("2.Mage Stats")
+    print_line()
+    print ("Health Points:" + str(generic_mage.hp))
+    print ("Magic Points:" + str(generic_mage.mp))
+    print ("Dexterity Points" + str(generic_mage.dex))
+    print_line()
+    print ("3.Rogue Stats")
+    print_line()
+    print ("Health Points:" + str(generic_warrior.hp))
+    print ("Magic Points:" + str(generic_warrior.mp))
+    print ("Dexterity Points" + str(generic_warrior.dex))
+    print_line()
+    while True:
+        temp_choice = int(input("Please enter a number 1-3, depending on your class"))
+        if ( 0 < temp_choice < 4 ):
+            break
+        else:
+            continue
 
-intro()
+    if (temp_choice == 1):
+        player = warrior(temp_name)
+    elif (temp_choice == 2):
+        player = mage(temp_name)
+    else:
+        player = rogue(temp_name)
+    print ("Done!")
+                          
+def main():
+    while True:
+        print_line()
+        print ("Welcome to our RPG")
+        print_line()
+        print ("1.Start a new game")
+        print_line()
+        print ("2.Load a game")
+        print_line()
+        print ("3.Quit Game")
+        print_line()
+        print ("Created by Benjamin Lodzhevsky,Jihad Beydoun, and Jonathan Ruvinov")
+        print_line()
+        while True:
+            menu_choice = int(input("Please input a choice from a range of 1-3"))
+            if ( 0 < menu_choice < 4 ):
+                break
+            else:
+                print ("That wasn't in range!")
+                continue
+        
 
 
     
