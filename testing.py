@@ -72,7 +72,7 @@ class rogue: #Defines the rogue class
         self.lvl = 1
         self.cls = "rogue"
 class wchicken:
-    def __init__(mob,mobname): #Warrior class for Chicken ~Implemented by Jihad
+    def __init__(mob,mobname): #Chicken classes for Chicken Mobs ~Implemented by Jihad
         mob.mobname = "Warrior Chicken"
         mob.hp = 55
         mob.mp = 0
