@@ -1,27 +1,43 @@
 import pickle
 import random
+import csv
 
 cls = lambda: os.system("cls") #This function clears the screen
 pause = lambda: os.system("pause") #This function paueses the screen
 
-def save(player):
-    temp_username = str(player.name)
-    if ((os.path.isfile("%s.p" % (temp_username)) == True ):
+def read_script(x):  #This function prints out a text script line with pause
+        with open('%s.txt' % (x) , newline='') as inputfile:
+            for row in csv.reader(inputfile):
+                print (row)
+                pause()
+
+
+def save(player): #This is the save function
+    temp_username = str(player.name) #Assigns a new variable from instance variable of the players name
+    if ((os.path.isfile("%s.p" % (temp_username)) == True )): #Checks for the existence of a previous safe file
         while True:
-            temp_save_choice = input("This file exists already, would you like to overwrite? y/n")
+            temp_save_choice = input("This file exists already, would you like to overwrite? y/n") #Confirms overwriting
             temp_save_choice.lower()
-            if (temp_save_choice == "y"):
-                pickle.dump(player, open("%s.p" % (temp_username), "wb" ))
+            if (temp_save_choice == "y"): #Actually logs the save
+                pickle.dump(player, open("%s.p" % (temp_username), "wb" )) #Pickle dump is written in bytes
                 print ("Saved")
                 return None
-            elif (temp_save_choice == "n"):
+            elif (temp_save_choice == "n"): #Cancels save
                 return ("Save wasn't made")
             else:
                 return ("ERROR")
     else:
-        pickle.dump(player, open("%s.p" % (temp_username) , "wb" ))
+        pickle.dump(player, open("%s.p" % (temp_username) , "wb" )) #Logs the save
         return None
-         
+
+
+def load(): #load function in work
+    temp_load_input = input("Please your characters name!")
+    temple_load_input.lower()
+
+
+
+
 
 def print_line(): #This function prints a line
     print ("----------")
@@ -41,8 +57,7 @@ class player: #Defines the superclass
         return None
     def level_up(self): #This function just increments the level by 1
         self.lvl += 1
-    def increase_stat(self):
-        temp_stat_increase = 
+    
 class warrior(player): #Defines the warrior class
     def __init__(self,name): #takes in the name argument
         self.name = name #The following define the stats
@@ -118,10 +133,12 @@ def intro(): #This defines the intro of the game
         player = mage(temp_name)
     else:
         player = rogue(temp_name)
+    temp_name_save = temp_name.lower()
+    pickle.dump(player,open("%s.p" % (temp_name_save), "wb"))
     print ("Done!")
                           
 def main():
-    while True:
+    while True: #This prints out the menu
         print_line()
         print ("Welcome to our RPG")
         print_line()
@@ -135,13 +152,16 @@ def main():
         print_line()
         while True:
             menu_choice = int(input("Please input a choice from a range of 1-3"))
-            if ( 0 < menu_choice < 4 ):
-                break
+            if ( menu_choice == 1 ):
+                intro()
             else:
                 print ("That wasn't in range!")
                 continue
         
 
 
+        
+def tutorial(): #Soon to be tutorial
+    
     
 
