@@ -6,8 +6,7 @@ pause = lambda: os.system("pause") #This function paueses the screen
 
 def save(player):
     temp_username = str(player.name)
-    if ((os.path.isfile("%s.p" % (temp_username)) == True )):
-
+    if ((os.path.isfile("%s.p" % (temp_username)) == True ):
         while True:
             temp_save_choice = input("This file exists already, would you like to overwrite? y/n")
             temp_save_choice.lower()
@@ -42,7 +41,8 @@ class player: #Defines the superclass
         return None
     def level_up(self): #This function just increments the level by 1
         self.lvl += 1
-    
+    def increase_stat(self):
+        temp_stat_increase = 
 class warrior(player): #Defines the warrior class
     def __init__(self,name): #takes in the name argument
         self.name = name #The following define the stats
@@ -72,30 +72,6 @@ class rogue: #Defines the rogue class
         self.dex = 3
         self.lvl = 1
         self.cls = "rogue"
-
-class wchicken:
-    def __init__(mob,mobname): #Chicken classes for Chicken Mobs ~Implemented by Jihad
-        mob.mobname = "Warrior Chicken"
-        mob.hp = 55
-        mob.mp = 0
-        mob.dex = random.randint(3,4)
-        mob.lvl = random.randint(1,2)
-
-class mchicken:
-    def __init__(mob, mobname):
-        mob.mobname = "Mage Chicken"
-        mob.hp = 40
-        mob.mp = 30
-        mob.dex = 3
-        mob.lvl = random.randint(1,2)
-class rchicken:
-    def __init__(mob,mobname):
-        mob.mobname = "Rogue Chicken"
-        mob.hp = 40
-        mob.mp = 40
-        mob.dex = random.randint(5,6)
-        mob.lvl = random.randint(1,2)
-
 
 def intro(): #This defines the intro of the game
     generic_warrior = warrior("generic")
@@ -165,6 +141,7 @@ def main():
                 print ("That wasn't in range!")
                 continue
         
+
 
     
 
