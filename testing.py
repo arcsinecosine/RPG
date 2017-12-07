@@ -41,7 +41,8 @@ class player: #Defines the superclass
         return None
     def level_up(self): #This function just increments the level by 1
         self.lvl += 1
-    
+    def increase_stat(self):
+        temp_stat_increase = 
 class warrior(player): #Defines the warrior class
     def __init__(self,name): #takes in the name argument
         self.name = name #The following define the stats
