@@ -1,6 +1,7 @@
 import pickle
 import random
 import csv
+import os
 
 cls = lambda: os.system("cls") #This function clears the screen
 pause = lambda: os.system("pause") #This function paueses the screen
@@ -34,6 +35,7 @@ def save(player): #This is the save function
 def load(): #load function in work
     temp_load_input = input("Please your characters name!")
     temple_load_input.lower()
+    if ((os.path.isfile("%s.p" % (temp_load_input)) == True )):
 
 
 
@@ -151,14 +153,19 @@ def intro(): #This defines the intro of the game
             continue
 
     if (temp_choice == 1):
-        player = warrior(temp_name)
+        global player = warrior(temp_name)
     elif (temp_choice == 2):
-        player = mage(temp_name)
+        global player = mage(temp_name)
     else:
-        player = rogue(temp_name)
+        global player = rogue(temp_name)
     temp_name_save = temp_name.lower()
     pickle.dump(player,open("%s.p" % (temp_name_save), "wb"))
     print ("Done!")
+    
+            
+
+
+
                           
 def main():
     while True: #This prints out the menu
@@ -176,7 +183,6 @@ def main():
         while True:
             menu_choice = int(input("Please input a choice from a range of 1-3"))
             if ( menu_choice == 1 ):
-                intro()
             else:
                 print ("That wasn't in range!")
                 continue
@@ -186,5 +192,10 @@ def main():
         
 def tutorial(): #Soon to be tutorial
     
+
+def game_state(x):
+        if (x == 1):
+                intro()
+
     
 
