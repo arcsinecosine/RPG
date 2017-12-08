@@ -1,0 +1,10 @@
+Low level Puzzles:
+	Find for X (Ex: 3x+9=15)
+
+
+Middle level Puzzles:
+	Find the area.
+	Solve the system of equations.
+
+Hard level Puzzles:
+	Find the angle.

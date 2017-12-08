@@ -1,6 +1,7 @@
 import pickle
 import random
 import csv
+import os
 
 cls = lambda: os.system("cls") #This function clears the screen
 pause = lambda: os.system("pause") #This function paueses the screen
@@ -34,6 +35,7 @@ def save(player): #This is the save function
 def load(): #load function in work
     temp_load_input = input("Please your characters name!")
     temple_load_input.lower()
+    if ((os.path.isfile("%s.p" % (temp_load_input)) == True )):
 
 
 
@@ -88,6 +90,29 @@ class rogue: #Defines the rogue class
         self.lvl = 1
         self.cls = "rogue"
 
+class wchicken:
+    def __init__(mob,mobname): #Chicken classes for Chicken Mobs ~Implemented by Jihad
+        mob.mobname = "Warrior Chicken"
+        mob.hp = 55
+        mob.mp = 0
+        mob.dex = random.randint(3,4)
+        mob.lvl = random.randint(1,2)
+
+class mchicken:
+    def __init__(mob, mobname):
+        mob.mobname = "Mage Chicken"
+        mob.hp = 40
+        mob.mp = 30
+        mob.dex = 3
+        mob.lvl = random.randint(1,2)
+class rchicken:
+    def __init__(mob,mobname):
+        mob.mobname = "Rogue Chicken"
+        mob.hp = 40
+        mob.mp = 40
+        mob.dex = random.randint(5,6)
+        mob.lvl = random.randint(1,2)
+
 def intro(): #This defines the intro of the game
     generic_warrior = warrior("generic")
     generic_mage = mage("generic")
@@ -128,14 +153,19 @@ def intro(): #This defines the intro of the game
             continue
 
     if (temp_choice == 1):
-        player = warrior(temp_name)
+        global player = warrior(temp_name)
     elif (temp_choice == 2):
-        player = mage(temp_name)
+        global player = mage(temp_name)
     else:
-        player = rogue(temp_name)
+        global player = rogue(temp_name)
     temp_name_save = temp_name.lower()
     pickle.dump(player,open("%s.p" % (temp_name_save), "wb"))
     print ("Done!")
+    
+            
+
+
+
                           
 def main():
     while True: #This prints out the menu
@@ -153,15 +183,15 @@ def main():
         while True:
             menu_choice = int(input("Please input a choice from a range of 1-3"))
             if ( menu_choice == 1 ):
-                intro()
+                
             else:
                 print ("That wasn't in range!")
                 continue
         
 
+def game_state(x):
+        if (x == 1):
+                intro()
 
-        
-def tutorial(): #Soon to be tutorial
-    
     
 
