@@ -1,5 +1,45 @@
 import pickle
 import random
+import csv
+import os
+
+cls = lambda: os.system("cls") #This function clears the screen
+pause = lambda: os.system("pause") #This function paueses the screen
+
+def read_script(x):  #This function prints out a text script line with pause
+        with open('%s.txt' % (x) , newline='') as inputfile:
+            for row in csv.reader(inputfile):
+                print (row)
+                pause()
+
+
+def save(player): #This is the save function
+    temp_username = str(player.name) #Assigns a new variable from instance variable of the players name
+    if ((os.path.isfile("%s.p" % (temp_username)) == True )): #Checks for the existence of a previous safe file
+        while True:
+            temp_save_choice = input("This file exists already, would you like to overwrite? y/n") #Confirms overwriting
+            temp_save_choice.lower()
+            if (temp_save_choice == "y"): #Actually logs the save
+                pickle.dump(player, open("%s.p" % (temp_username), "wb" )) #Pickle dump is written in bytes
+                print ("Saved")
+                return None
+            elif (temp_save_choice == "n"): #Cancels save
+                return ("Save wasn't made")
+            else:
+                return ("ERROR")
+    else:
+        pickle.dump(player, open("%s.p" % (temp_username) , "wb" )) #Logs the save
+        return None
+
+
+def load(): #load function in work
+    temp_load_input = input("Please your characters name!")
+    temple_load_input.lower()
+    if ((os.path.isfile("%s.p" % (temp_load_input)) == True )):
+
+
+
+
 
 def print_line(): #This function prints a line
     print ("----------")
@@ -50,17 +90,85 @@ class rogue: #Defines the rogue class
         self.lvl = 1
         self.cls = "rogue"
 
-def intro():
-    while True:
+def intro(): #This defines the intro of the game
+    generic_warrior = warrior("generic")
+    generic_mage = mage("generic")
+    generic_rogue = rogue("generic")
+    while True: #This is to make sure the username isn't blank
         temp_name = input("Please enter your name!")
         if (temp_name == ""):
             continue
         else:
             break
+    print ("These are the classes") #The lines below are just defined the stats 
+    print_line()                    # of each class
+    print ("CLASSES")
+    print_line()
+    print ("1.Warrior Stats")
+    print_line()
+    print ("Health Points:" + str(generic_warrior.hp))
+    print ("Magic Points:" + str(generic_warrior.mp))
+    print ("Dexterity Points" + str(generic_warrior.dex))
+    print_line()
+    print ("2.Mage Stats")
+    print_line()
+    print ("Health Points:" + str(generic_mage.hp))
+    print ("Magic Points:" + str(generic_mage.mp))
+    print ("Dexterity Points" + str(generic_mage.dex))
+    print_line()
+    print ("3.Rogue Stats")
+    print_line()
+    print ("Health Points:" + str(generic_warrior.hp))
+    print ("Magic Points:" + str(generic_warrior.mp))
+    print ("Dexterity Points" + str(generic_warrior.dex))
+    print_line()
+    while True:
+        temp_choice = int(input("Please enter a number 1-3, depending on your class"))
+        if ( 0 < temp_choice < 4 ):
+            break
+        else:
+            continue
+
+    if (temp_choice == 1):
+        global player = warrior(temp_name)
+    elif (temp_choice == 2):
+        global player = mage(temp_name)
+    else:
+        global player = rogue(temp_name)
+    temp_name_save = temp_name.lower()
+    pickle.dump(player,open("%s.p" % (temp_name_save), "wb"))
+    print ("Done!")
     
+            
 
-intro()
 
+
+                          
+def main():
+    while True: #This prints out the menu
+        print_line()
+        print ("Welcome to our RPG")
+        print_line()
+        print ("1.Start a new game")
+        print_line()
+        print ("2.Load a game")
+        print_line()
+        print ("3.Quit Game")
+        print_line()
+        print ("Created by Benjamin Lodzhevsky,Jihad Beydoun, and Jonathan Ruvinov")
+        print_line()
+        while True:
+            menu_choice = int(input("Please input a choice from a range of 1-3"))
+            if ( menu_choice == 1 ):
+                
+            else:
+                print ("That wasn't in range!")
+                continue
+        
+
+def game_state(x):
+        if (x == 1):
+                intro()
 
     
 
