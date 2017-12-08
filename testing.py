@@ -91,27 +91,24 @@ class rogue: #Defines the rogue class
         self.cls = "rogue"
 
 class wchicken:
-    def __init__(mob,mobname): #Chicken classes for Chicken Mobs ~Implemented by Jihad
+    def __init__(self): #Chicken classes for Chicken Mobs ~Implemented by Jihad
         mob.mobname = "Warrior Chicken"
         mob.hp = 55
         mob.mp = 0
         mob.dex = random.randint(3,4)
-        mob.lvl = random.randint(1,2)
 
 class mchicken:
-    def __init__(mob, mobname):
+    def __init__(self):
         mob.mobname = "Mage Chicken"
         mob.hp = 40
         mob.mp = 30
         mob.dex = 3
-        mob.lvl = random.randint(1,2)
 class rchicken:
-    def __init__(mob,mobname):
+    def __init__(self):
         mob.mobname = "Rogue Chicken"
         mob.hp = 40
         mob.mp = 40
         mob.dex = random.randint(5,6)
-        mob.lvl = random.randint(1,2)
 
 def intro(): #This defines the intro of the game
     generic_warrior = warrior("generic")
