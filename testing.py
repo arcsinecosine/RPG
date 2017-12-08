@@ -183,15 +183,11 @@ def main():
         while True:
             menu_choice = int(input("Please input a choice from a range of 1-3"))
             if ( menu_choice == 1 ):
+                
             else:
                 print ("That wasn't in range!")
                 continue
         
-
-
-        
-def tutorial(): #Soon to be tutorial
-    
 
 def game_state(x):
         if (x == 1):
