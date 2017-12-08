@@ -55,3 +55,4 @@ def intro(): #This defines the intro of the game
     temp_name_save = temp_name.lower()
     pickle.dump(player,open("%s.p" % (temp_name_save), "wb"))
     print ("Done!")
+    return (player)
