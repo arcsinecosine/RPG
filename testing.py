@@ -90,6 +90,29 @@ class rogue: #Defines the rogue class
         self.lvl = 1
         self.cls = "rogue"
 
+class wchicken:
+    def __init__(mob,mobname): #Chicken classes for Chicken Mobs ~Implemented by Jihad
+        mob.mobname = "Warrior Chicken"
+        mob.hp = 55
+        mob.mp = 0
+        mob.dex = random.randint(3,4)
+        mob.lvl = random.randint(1,2)
+
+class mchicken:
+    def __init__(mob, mobname):
+        mob.mobname = "Mage Chicken"
+        mob.hp = 40
+        mob.mp = 30
+        mob.dex = 3
+        mob.lvl = random.randint(1,2)
+class rchicken:
+    def __init__(mob,mobname):
+        mob.mobname = "Rogue Chicken"
+        mob.hp = 40
+        mob.mp = 40
+        mob.dex = random.randint(5,6)
+        mob.lvl = random.randint(1,2)
+
 def intro(): #This defines the intro of the game
     generic_warrior = warrior("generic")
     generic_mage = mage("generic")
@@ -160,11 +183,15 @@ def main():
         while True:
             menu_choice = int(input("Please input a choice from a range of 1-3"))
             if ( menu_choice == 1 ):
-                
             else:
                 print ("That wasn't in range!")
                 continue
         
+
+
+        
+def tutorial(): #Soon to be tutorial
+    
 
 def game_state(x):
         if (x == 1):
