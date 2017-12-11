@@ -1,3 +1,5 @@
+import csv
+
 def print_line(): #This function prints a line
     print ("----------")
     return None
@@ -19,4 +21,13 @@ def save(player,world): #This is the save function
     else:
         pickle.dump(player, open("%s.p" % (temp_username) , "wb" )) #Logs the save
         return None
+
+def read_file(x):
+    with open("%s.txt" , "rb") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            temp_string = row
+            print (temp_string)
+
+
 

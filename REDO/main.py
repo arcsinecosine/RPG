@@ -8,11 +8,9 @@ import random
 import csv
 import os
 
-cls = lambda: os.system("cls") #This function clears the screen
-pause = lambda: os.system("pause") #This function paueses the screen
-
 global player
 global world
+global name_load
 
 def main():
     while True: #This prints out the menu
@@ -30,16 +28,18 @@ def main():
         while True:
             menu_choice = int(input("Please input a choice from a range of 1-3"))
             if ( menu_choice == 1 ):
-                player = intro()
-                world = world()
-
+                cls()
+                name_load = intro()
+                player = picke.load(open("%s.p" % (name_load) , "rb"))
+                world = pickle.load(open("%s-world.p" %(name_load),"rb"))
+                return (0)
             else:
                 print ("That wasn't in range!")
+                cls()
                 continue
-        cls()
+
+
         
-
-
 
 
 if __name__ == "__main__":

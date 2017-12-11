@@ -1,6 +1,7 @@
 from player_classes import *
 from util import *
 import pickle
+from lamb_func import *
 
 def print_classes():
     generic_warrior = warrior("generic")
@@ -36,7 +37,7 @@ def intro(): #This defines the intro of the game
             continue
         else:
             break
-
+    read_file(1)
     print_classes()
     
     while True:
@@ -54,5 +55,7 @@ def intro(): #This defines the intro of the game
         player = rogue(temp_name)
     temp_name_save = temp_name.lower()
     pickle.dump(player,open("%s.p" % (temp_name_save), "wb"))
+    world = world()
+    pickle.dump(world,open("%s-world.p" % (temp_name_save), "wb"))
     print ("Done!")
-    return (player)
+    return (temp_name_save)
