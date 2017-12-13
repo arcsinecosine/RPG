@@ -12,6 +12,13 @@ global player
 global world
 global name_load
 
+game_chooses = {
+    1 : world.
+
+
+
+
+
 def main():
     while True: #This prints out the menu
         print_line()
@@ -39,7 +46,31 @@ def main():
                 continue
 
 
+
+
+
+def game(player,world):
+    while True:
+        print_line()
+        print ("MENU")
+        print_line()
+        print ("1. <<< EXPLORE <<< ")
+        print_line()
+        print ("2. <<< STATS <<< ")
+        print_line()
+        print ("3. <<< SAVE <<< ")
+        print_line()
+        print ("4. <<< QUIT <<< ")
+        print_line()
+        game_choice = int(input("Please enter a choice between 1-4"))
+        if (0 < game_choice < 5):
+            
+    
+    
         
+
+
+
 
 
 if __name__ == "__main__":

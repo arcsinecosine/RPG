@@ -30,4 +30,8 @@ def read_file(x):
             print (temp_string)
 
 
+def load(x):
+    temp_str = str(x)
+    pickle.load(
+
 
