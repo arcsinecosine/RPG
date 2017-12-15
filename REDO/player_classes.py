@@ -17,6 +17,7 @@ class warrior(player): #Defines the warrior class
         self.dex = 3
         self.lvl = 1
         self.cls = "warrior"
+        self.pot = 3
         
 class mage: #Defines the mage class
     def __init__(self,name): #takes in the name argument
@@ -27,6 +28,7 @@ class mage: #Defines the mage class
         self.dex = 3
         self.lvl = 1
         self.cls = "mage"
+        self.pot = 3
 
 class rogue: #Defines the rogue class
     def __init__(self,name): #takes in the name argument
@@ -37,3 +39,4 @@ class rogue: #Defines the rogue class
         self.dex = 3
         self.lvl = 1
         self.cls = "rogue"
+        self.pot = 3

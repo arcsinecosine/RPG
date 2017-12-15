@@ -1,5 +1,6 @@
 from random import randint
-
+from util import *
+from battle import *
 class world:
     class dungeon_kfc:
         def __init__(self):
@@ -30,7 +31,12 @@ class world:
                 self.rand_event = randint(1,6)
                 self.run_event[self.rand_event]
 
-        def story_event_1(self):
+        def story_event_1(self,player):
+            read_script(2)
+            print ("You're now in a battle with a warrior chicken!")
+            
+            
+            
 
 
 
