@@ -1,7 +1,7 @@
 from player_classes import *
+from world_class import *
 from util import *
 import pickle
-from lamb_func import *
 
 def print_classes():
     generic_warrior = warrior("generic")
@@ -15,19 +15,25 @@ def print_classes():
     print_line()
     print ("Health Points:" + str(generic_warrior.hp))
     print ("Magic Points:" + str(generic_warrior.mp))
-    print ("Dexterity Points" + str(generic_warrior.dex))
+    print ("Dexterity Points:" + str(generic_warrior.dex))
+    print ("Strength Points:" + str(generic_warrior.str))
+    print ("Magic Strength:" + str(generic_warrior.ms))
     print_line()
     print ("2.Mage Stats")
     print_line()
     print ("Health Points:" + str(generic_mage.hp))
     print ("Magic Points:" + str(generic_mage.mp))
-    print ("Dexterity Points" + str(generic_mage.dex))
+    print ("Dexterity Points:" + str(generic_mage.dex))
+    print("Strength Points:" + str(generic_rogue.str))
+    print("Magic Strength:" + str(generic_rogue.ms))
     print_line()
     print ("3.Rogue Stats")
     print_line()
-    print ("Health Points:" + str(generic_warrior.hp))
-    print ("Magic Points:" + str(generic_warrior.mp))
-    print ("Dexterity Points" + str(generic_warrior.dex))
+    print ("Health Points:" + str(generic_rogue.hp))
+    print ("Magic Points:" + str(generic_rogue.mp))
+    print ("Dexterity Points:" + str(generic_rogue.dex))
+    print("Strength Points:" + str(generic_rogue.str))
+    print("Magic Strength:" + str(generic_rogue.ms))
     print_line()
 
 def intro(): #This defines the intro of the game
@@ -39,7 +45,6 @@ def intro(): #This defines the intro of the game
             break
     read_file(1)
     print_classes()
-    
     while True:
         temp_choice = int(input("Please enter a number 1-3, depending on your class"))
         if ( 0 < temp_choice < 4 ):
@@ -55,7 +60,5 @@ def intro(): #This defines the intro of the game
         player = rogue(temp_name)
     temp_name_save = temp_name.lower()
     pickle.dump(player,open("%s.p" % (temp_name_save), "wb"))
-    world = world()
-    pickle.dump(world,open("%s-world.p" % (temp_name_save), "wb"))
     print ("Done!")
     return (temp_name_save)
