@@ -1,10 +1,15 @@
 import csv
+import os
+import pickle
+
+cls = lambda: os.system("cls") #This function clears the screen
+pause = lambda: os.system("pause") #This function paueses the screen
 
 def print_line(): #This function prints a line
     print ("----------")
     return None
 
-def save(player,world): #This is the save function
+def save(player): #This is the save function
     temp_username = str(player.name) #Assigns a new variable from instance variable of the players name
     if ((os.path.isfile("%s.p" % (temp_username)) == True )): #Checks for the existence of a previous safe file
         while True:
@@ -23,7 +28,8 @@ def save(player,world): #This is the save function
         return None
 
 def read_file(x):
-    with open("%s.txt" , "rb") as f:
+    x = str(x)
+    with open("%s.txt" % (x), "r") as f:
         reader = csv.reader(f)
         for row in reader:
             temp_string = row
@@ -32,6 +38,16 @@ def read_file(x):
 
 def load(x):
     temp_str = str(x)
-    pickle.load(
+    temp_str.lower()
+    fp = open("%s.p" % (temp_str) , "rb")
+    loaded_player = pickle.load(fp)
+    return loaded_player
+
+def load_world(x):
+    temp_str = str(x)
+    temp_str.lower()
+    fp = open("%s-world.p" % (temp_str), "rb")
+    return fp
+
 
 

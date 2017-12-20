@@ -1,4 +1,6 @@
-dict = {"ben": 12}
-print (dict)
-dict["ben"] = 13
-print (dict)
+from random import *
+
+
+for i in range(10):
+    x = randint(1,2)
+    print (x)

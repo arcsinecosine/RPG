@@ -1,19 +1,43 @@
-class wchicken:
+from random import *
+
+class super_chicken:
+
+    def rand_attack(self):
+        temp_intger = randint(1,2)
+
+
+class wchicken(super_chicken):
+
     def __init__(self): #Chicken classes for Chicken Mobs ~Implemented by Jihad
-        mob.mobname = "Warrior Chicken"
-        mob.hp = 55
-        mob.mp = 0
-        mob.dex = random.randint(3,4)
+        self.mobname = "Warrior Chicken"
+        self.hp = 55
+        self.mp = 0
+        self.dex = random.randint(3,4)
+        self.attacks = {1 : 4 , 2 : 2}    #This attack is peck
+
+
+
+
+
 
 class mchicken:
     def __init__(self):
-        mob.mobname = "Mage Chicken"
-        mob.hp = 40
-        mob.mp = 30
-        mob.dex = 3
+        self.mobname = "Mage Chicken"
+        self.hp = 40
+        self.mp = 30
+        self.dex = 3
+        self.attacks = {1 : 4 , 2 : 2}   #This attack is fireball
+
+
+
+
 class rchicken:
     def __init__(self):
-        mob.mobname = "Rogue Chicken"
-        mob.hp = 40
-        mob.mp = 40
-        mob.dex = random.randint(5,6)
+        self.mobname = "Rogue Chicken"
+        self.hp = 40
+        self.mp = 40
+        self.dex = random.randint(5,6)
+        self.attacks = {1 : 4 , 2 : 2}  #This attack is rogue peck idk
+
+
+
