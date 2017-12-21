@@ -194,7 +194,7 @@ def puzzle_event3(player):
     while True:
         print ("Solve for b:  3b+6=-18")
         answer = float(input(""))
-        if (answer  == -3):
+        if (answer  == -8):
             print ("The chicken says, 'Congrats on solving my puzzle traveler!'")
             print ("In return I will increase your dexterity by 1")
             player.dex += 1
