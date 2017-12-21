@@ -7,13 +7,13 @@ import pickle
 import random
 import csv
 import os
-import pygame
+#import pygame
 from battle_func import *
 
-pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
-a1 = pygame.mixer.Sound("a1.wav")
-b1 = pygame.mixer.Sound("b1.wav")
-c1 = pygame.mixer.Sound("c1.wav")
+#pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
+#a1 = pygame.mixer.Sound("a1.wav")  Due to github not letting me upload files of over 25 mb 
+#b1 = pygame.mixer.Sound("b1.wav")  I can't put the song but whatever
+#c1 = pygame.mixer.Sound("c1.wav")  It's uncommented and it can easily be changed to whatever
 
 global player
 global name_load
